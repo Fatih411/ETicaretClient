@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.product-create{
+  margin: 5px 5px 5px;
+  padding: 1px;
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+.btn{
+    margin: 5px 5px 5px;
+    padding: 1;
+}

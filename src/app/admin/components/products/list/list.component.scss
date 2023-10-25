@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+  }
+ 
+  .my-editicon {
+    color: green; /* Normal ikon rengi */
+    transition: color 0.3s; /* Geçiş efekti eklemek için */
+  }
+  
+  .my-editicon:hover {
+    color: red; /* Üzerine gelindiğinde ikon rengini değiştirme */
+  }

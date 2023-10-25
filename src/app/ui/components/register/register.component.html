@@ -1,0 +1,49 @@
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Kayıt Formu</h2>
+                    <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Ad Soyad</label>
+                            <input type="text" formControlName="nameSurname" class="form-control" id="nameSurname" placeholder="Adınızı ve Soyadınızı girin" required [ngClass]="{'is-invalid':submitted && component.nameSurname.errors}">
+                            <small style="color: red;" *ngIf="submitted && component.nameSurname.errors?.required">Ad Soyad doldurulmalıdır.</small>
+                            <small style="color: red;" *ngIf="submitted && (component.nameSurname.errors?.minlength || component.nameSurname.errors?.maxlength)">Ad Soyad 3 ile 50 karakter arasında olması gerekmektedir.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Kullanıcı Adı</label>
+                            <input type="text" formControlName="userName" class="form-control" id="kullaniciAdi" placeholder="Kullanıcı adınızı girin" required  [ngClass]="{'is-invalid':submitted && component.userName.errors}">
+                            <small style="color: red;" *ngIf="submitted && component.userName.errors?.required">Kullanıcı adı doldurulmalıdır.</small>
+                            <small style="color: red;" *ngIf="submitted && (component.userName.errors?.minlength || component.userName.errors?.maxlength)">Kullanıcı adı 3 ile 50 karakter arasında olması gerekmektedir.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-posta Adresi</label>
+                            <input type="email" formControlName="email" class="form-control" id="email" placeholder="E-posta adresinizi girin" required  [ngClass]="{'is-invalid':submitted && component.email.errors}">
+                            <small style="color: red;" *ngIf="submitted && component.email.errors?.email">Uygun mail adresi giriniz.</small>
+                            <small style="color: red;" *ngIf="submitted && component.email.errors?.required">Mail adresi boş olamaz.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Şifre</label>
+                            <input type="password" formControlName="password" class="form-control" id="password" placeholder="Şifrenizi girin" required [ngClass]="{'is-invalid':submitted && component.password.errors}">
+                            <small style="color: red;" *ngIf="submitted && component.password.errors?.required">Sifre boş olamaz.</small>
+                            <small style="color: red;" *ngIf="submitted && component.password.errors?.minlength">8 karakterden büyük olmalıdır.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Şifre Tekrar</label>
+                            <input type="password" formControlName="passwordConfirm" class="form-control" id="passwordTekrar" placeholder="Şifrenizi girin" required [ngClass]="{'is-invalid':submitted && component.passwordConfirm.errors}"v>
+                            <small style="color: red;" *ngIf="submitted && component.passwordConfirm.errors?.required">Sifre boş olamaz.</small>
+                            <small style="color: red;" *ngIf="submitted && component.passwordConfirm.errors?.minlength">8 karakterden büyük olmalıdır.</small>
+                            <small *ngIf="submitted && frm?.hasError('notSame')">Şifreler aynı olmalıdır.</small>
+                        </div>
+                        <div class="mb-3 text-center">
+                            <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

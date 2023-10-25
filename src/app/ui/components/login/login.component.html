@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Login</h2>
+                 
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Kullanıcı Adı</label>
+                            <input #txtUsernameOrEmail type="text" formControlName="userName" class="form-control" id="userName" placeholder="Kullanıcı Adı & Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Şifre</label>
+                            <input #txtPassword type="password" formControlName="password" class="form-control" id="password" placeholder="Şifrenizi girin" required >
+                        </div>
+                        
+                            <div class="container">
+                                <div class="row">
+                                    <div class="row text-center mb-3">
+                                        <button type="submit" class="btn btn-primary" (click)="login(txtUsernameOrEmail.value, txtPassword.value)">Giriş Yap</button>
+                                    </div>
+                                    <div>
+                                        <asl-google-signin-button></asl-google-signin-button>                                      
+                                    </div>
+                                                                    
+                                </div>
+                            </div>
+                        <a href="register" style="color: black; cursor:pointer">Kayıt ol</a>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

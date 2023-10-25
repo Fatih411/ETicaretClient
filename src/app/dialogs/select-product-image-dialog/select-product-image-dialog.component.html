@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Product Images</h2>
+<mat-dialog-content class="mat-typography">
+    <app-fileupload [options]="options"></app-fileupload>
+
+    <mat-card class="product-image-card" *ngFor="let image of images">
+      <mat-card-header>
+       <input type="radio" name="img" (click)="showCase(image.id)" [checked]="image.showcase">
+        
+
+      </mat-card-header>
+      <img mat-card-image src="{{image.path}}" width="200px" height="200px" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button style="background-color: orange; color:white" (click)="deleteImage(image.id, $event)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close >Cancel</button>
+</mat-dialog-actions>

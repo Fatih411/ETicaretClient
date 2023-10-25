@@ -1,0 +1,37 @@
+
+    <div class="container">
+
+        <div class="row ">
+          <div class="card " style="width: 18rem; margin: 8px;"  *ngFor="let product of products">
+           
+            <img *ngIf="!product.productImagesFiles.length" src="assets/noimage.jpg" class="card-img-top" alt="...">
+            <img  *ngIf="product.productImagesFiles.length" src="{{product.imagePath ? baseUrl.url + '/':''}}{{product.imagePath}}" class="card-img-top" style="height: 70%; width: 100%; align-items: center;" alt="..."> 
+            <div class="card-body">
+
+              <h5 class="card-title" style="font-size: medium;">{{product.name}}</h5>
+              <p class="card-text;" >{{product.price | currency:'₺'}}</p>
+              <a class="btn btn-success" style="background-color: teal;" (click)="addToBasket(product)">Sepete Ekle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="container;" style=" position: relative;bottom: 0;transform: translateX(40%);">
+        <nav aria-label="..." >
+          <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link">{{currentPageNo}}/{{totalPageCount}}</a>
+              </li>
+            <li class="page-item">
+              <a class="page-link" [routerLink]="['/products', currentPageNo - 1 <= 0 ? 1 : currentPageNo - 1]">Önceki</a>
+            </li> 
+            <li class="page-item " aria-current="page" *ngFor="let pageNo of pageList" routerLinkActive="active">
+              <a class="page-link" [routerLink]="['/products', pageNo]">{{pageNo}}</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" [routerLink]="['/products', currentPageNo + 1 >= totalPageCount ? totalPageCount : currentPageNo + 1]">Sonra</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
